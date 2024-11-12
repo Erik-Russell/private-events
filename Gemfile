@@ -43,6 +43,9 @@ gem "thruster", require: false
 # Use Faker for data filling
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main'
 
+# Use Devise for authentication
+gem 'devise'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
