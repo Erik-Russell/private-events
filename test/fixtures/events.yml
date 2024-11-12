@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2024-11-12 08:16:23
+  location: MyString
+
+two:
+  date: 2024-11-12 08:16:23
+  location: MyString
