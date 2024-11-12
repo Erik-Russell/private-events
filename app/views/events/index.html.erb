@@ -4,6 +4,7 @@
 <% else %>
   <%= button_to "Sign in", new_user_session_path %>
 <% end %>
+<%= link_to "New Event", new_event_path %>
 <h1>Private Events</h1>
 
 <% @events.each do |event| %>
