@@ -7,4 +7,11 @@
   <strong>Location:</strong>
   <%= event.location %>
 </div>
+<% unless event.creator_id.nil? %>
+  <div>
+    <strong>Created by:</strong>
+    <%= User.find(event.creator_id).email %>
+  </div>
+<% end %>
+
 <span>-------------------------------</span>
