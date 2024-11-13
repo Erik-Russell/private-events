@@ -11,6 +11,7 @@
   <div>
     <strong>Created by:</strong>
     <%= User.find(event.creator_id).email %>
+    <%= link_to 'see all events by them', user_path(event.creator_id) %>
   </div>
 <% end %>
 
