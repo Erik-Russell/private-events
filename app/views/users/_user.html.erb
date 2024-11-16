@@ -24,3 +24,24 @@
   </div>
   <% end %>
 <% end %>
+
+<% if user.attended_events.any? %>
+  <% future_events = Event.where(id: user.attended_events.pluck(:event_id), date: Time.now.midnight..) %>
+  <% past_events = Event.where(id: user.attended_events.pluck(:event_id), date: ..Time.now.midnight) %>
+
+  <div>
+    <p>***</p>
+    <p><strong>Future Events</strong></p>
+    <% future_events.each do |event| %>
+      <p><%= event.date %> @ <%= event.location %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <p>***</p>
+    <p><strong>Past Events</strong></p>
+    <% past_events.each do |event| %>
+      <p><%= event.date %> @ <%=event.location %></p>
+    <% end %>
+  </div>
+<% end %>
