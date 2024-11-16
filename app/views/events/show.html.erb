@@ -8,10 +8,12 @@
   <% end %>
 </div>
 
-<% unless @event.attendees.include?(current_user) %>
-  <%= button_to "Join Event", attend_event_path(@event), method: :post %>
-<% else %>
-  <p>You are attending this event.</p>
+<% if user_signed_in? %>
+  <% unless @event.attendees.include?(current_user) %>
+    <%= button_to "Join Event", attend_event_path(@event), method: :post %>
+  <% else %>
+    <p>You are attending this event.</p>
+  <% end %>
 <% end %>
 
 <%= link_to 'back to events', events_path %>
