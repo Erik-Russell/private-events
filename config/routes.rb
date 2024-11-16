@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
+
   resources :users, only: [:show]
-  resources :events, only: [:index, :new, :create, :show]
+
+  resources :events, only: [:index, :new, :create, :show] do
+    member do
+      post 'attend'
+    end
+  end
+
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_action :set_event, only: [:show, :attend]
 
   def index
     @events = Event.all
@@ -6,7 +7,6 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find(params[:id])
   end
 
   def new
@@ -18,7 +18,21 @@ class EventsController < ApplicationController
     redirect_to events_path
   end
 
+  def attend
+    if !@event.attendees.include?(current_user)
+      @event.attendees << current_user
+      flash[:notice] = "you have joined this event!"
+    else
+      flash[:alert] = "you are already attending!!"
+    end
+    redirect_to event_path(@event)
+  end
+
   private
+
+  def set_event
+    @event = Event.find(params[:id])
+  end
 
   def require_login
     if user_signed_in?

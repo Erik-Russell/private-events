@@ -18,6 +18,9 @@
         <strong>Location:</strong>
         <%= event.location%>
       </p>
+      <p>
+        <%= link_to 'event details', event_path(event) %>
+      </p>
   </div>
   <% end %>
 <% end %>

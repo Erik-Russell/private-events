@@ -9,4 +9,5 @@
 
 <% @events.each do |event| %>
   <%= render event %>
+  <%= link_to 'event details', event_path(event) %>
 <% end %>
